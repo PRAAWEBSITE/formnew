@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRASTORE - Top Up Your Favorite Games & Stay Updated!</title>
+    <title>SECRET AREA - Join Clan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,1009 +13,526 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            min-height: 100vh;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* Header */
-        header {
+        .crystal {
             position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #00d4ff, #7b2cbf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #00d4ff;
-            transform: translateY(-2px);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #00d4ff, #7b2cbf);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23000" width="1200" height="800"/><circle cx="200" cy="200" r="3" fill="%2300d4ff" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/></circle><circle cx="400" cy="150" r="2" fill="%237b2cbf" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="3s" repeatCount="indefinite"/></circle><circle cx="600" cy="300" r="4" fill="%2300ff88" opacity="0.7"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.5s" repeatCount="indefinite"/></circle><circle cx="800" cy="250" r="3" fill="%23ff6b35" opacity="0.5"><animate attributeName="opacity" values="0.5;0.1;0.5" dur="4s" repeatCount="indefinite"/></circle><circle cx="1000" cy="400" r="2" fill="%2300d4ff" opacity="0.6"><animate attributeName="opacity" values="0.6;0.2;0.6" dur="3.5s" repeatCount="indefinite"/></circle></svg>');
-            background-size: cover;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation: fall linear infinite;
             z-index: 1;
+            opacity: 0.8;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #00d4ff, #ffffff, #7b2cbf);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero .subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #cccccc;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
                 opacity: 0;
-                transform: translateY(30px);
             }
-            to {
+            10% {
                 opacity: 1;
-                transform: translateY(0);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
             }
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #00d4ff, #7b2cbf);
-            color: white;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #00d4ff;
-            border: 2px solid #00d4ff;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
+        .container {
+            max-width: 800px;
             margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
         }
 
-        .section-title {
+        .header {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, #00d4ff, #ffffff);
+            margin-bottom: 50px;
+            padding: 40px 0;
+        }
+
+        .title {
+            font-family: 'Orbitron', monospace;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700, #FFFF00);
+            background-size: 400% 400%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
         }
 
-        /* Top-Up Store Section */
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
+        @keyframes shimmer {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
-        .filter-btn {
-            padding: 0.5rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 25px;
-            color: white;
-            cursor: pointer;
+        .subtitle {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            color: #c0c0c0;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .form-container {
+            background: rgba(45, 45, 45, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FFD700, transparent, #FFD700);
+            border-radius: 20px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
+            position: relative;
         }
 
-        .filter-btn:hover, .filter-btn.active {
-            background: linear-gradient(45deg, #00d4ff, #7b2cbf);
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
             transform: translateY(-2px);
+            background: rgba(26, 26, 26, 0.9);
         }
 
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .form-group input::placeholder {
+            color: #888;
+            font-style: italic;
         }
 
-        .game-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .form-group select option {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 10px;
+        }
+
+        .required {
+            color: #ff4444;
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border: none;
             border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .game-card::before {
+        .submit-btn::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.5s ease;
         }
 
-        .game-card:hover::before {
+        .submit-btn:hover::before {
             left: 100%;
         }
 
-        .game-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
-            border-color: #00d4ff;
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
         }
 
-        .game-logo {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #00d4ff, #7b2cbf);
+        .footer {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(26, 26, 26, 0.9);
             border-radius: 15px;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            text-align: center;
         }
 
-        .game-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
+        .footer-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .price-list {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .price-item:last-child {
-            border-bottom: none;
-        }
-
-        /* News Section */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .news-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(123, 44, 191, 0.2);
-        }
-
-        .news-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #00d4ff, #7b2cbf);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-        }
-
-        .news-content {
-            padding: 1.5rem;
-        }
-
-        .news-tag {
-            background: linear-gradient(45deg, #00d4ff, #7b2cbf);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        .news-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-        }
-
-        .news-description {
-            color: #cccccc;
-            font-size: 0.9rem;
+        .footer-text {
+            color: #c0c0c0;
+            font-size: 1.1rem;
+            font-weight: 500;
             line-height: 1.6;
         }
 
-        /* Testimonial Section */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .admin-info {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
+        .admin-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: 10px;
         }
 
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
-        }
-
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #00ff88, #00d4ff);
-            border-radius: 50%;
-            margin: 0 auto 1rem;
+        .admin-numbers {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: #cccccc;
+        .admin-number {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
         }
 
-        .testimonial-author {
-            font-weight: bold;
-            color: #00d4ff;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            padding: 3rem 2rem 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: #00d4ff;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section p, .footer-section a {
-            color: #cccccc;
-            text-decoration: none;
-            line-height: 1.8;
-        }
-
-        .footer-section a:hover {
-            color: #00d4ff;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            background: linear-gradient(45deg, #00d4ff, #7b2cbf);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #666666;
-        }
-
-        /* Floating Support Button */
-        .floating-support {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #25d366, #128c7e);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .floating-support:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 {
+            .title {
                 font-size: 2.5rem;
             }
             
-            .hero .subtitle {
-                font-size: 1rem;
+            .container {
+                padding: 15px;
             }
             
-            .hero-buttons {
+            .form-container {
+                padding: 25px;
+            }
+            
+            .admin-numbers {
                 flex-direction: column;
                 align-items: center;
             }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .games-grid, .news-grid, .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .input-animation {
+            animation: inputGlow 0.5s ease-in-out;
         }
 
-        .floating-support {
-            animation: float 3s ease-in-out infinite;
+        @keyframes inputGlow {
+            0% {
+                box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">PRASTORE</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#store">Store</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Top Up Your Favorite Games & Stay Updated!</h1>
-            <p class="subtitle">Fast, secure, and trusted game top-up platform with the latest game news.</p>
-            <div class="hero-buttons">
-                <a href="#store" class="btn btn-primary">Explore Store</a>
-                <a href="#news" class="btn btn-secondary">Read Game News</a>
-            </div>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">SECRET AREA</h1>
+            <p class="subtitle">Join The Elite Clan</p>
         </div>
-    </section>
 
-    <section class="section" id="store">
-        <h2 class="section-title">🎮 Top-Up Store</h2>
-        <div class="filter-buttons">
-            <button class="filter-btn active">All Games</button>
-            <button class="filter-btn">Mobile</button>
-            <button class="filter-btn">PC</button>
-            <button class="filter-btn">Popular</button>
+        <div class="form-container">
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="namaLengkap">Nama Lengkap <span class="required">*</span></label>
+                    <input type="text" id="namaLengkap" name="namaLengkap" required placeholder="Masukkan nama lengkap Anda">
+                </div>
+
+                <div class="form-group">
+                    <label for="nickname">Nickname In-Game <span class="required">*</span></label>
+                    <input type="text" id="nickname" name="nickname" required placeholder="Masukkan nickname game Anda">
+                </div>
+
+                <div class="form-group">
+                    <label for="idGame">ID Game <span class="required">*</span></label>
+                    <input type="text" id="idGame" name="idGame" required placeholder="Masukkan ID game Anda">
+                </div>
+
+                <div class="form-group">
+                    <label for="divisi">Divisi <span class="required">*</span></label>
+                    <select id="divisi" name="divisi" required>
+                        <option value="">Pilih Divisi</option>
+                        <option value="CLAN OFFICIAL">CLAN OFFICIAL</option>
+                        <option value="CLAN CIRCLE">CLAN CIRCLE</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="domisili">Domisili <span class="required">*</span></label>
+                    <select id="domisili" name="domisili" required>
+                        <option value="">Pilih Provinsi</option>
+                        <option value="Aceh">Aceh</option>
+                        <option value="Sumatera Utara">Sumatera Utara</option>
+                        <option value="Sumatera Barat">Sumatera Barat</option>
+                        <option value="Riau">Riau</option>
+                        <option value="Kepulauan Riau">Kepulauan Riau</option>
+                        <option value="Jambi">Jambi</option>
+                        <option value="Sumatera Selatan">Sumatera Selatan</option>
+                        <option value="Bangka Belitung">Bangka Belitung</option>
+                        <option value="Bengkulu">Bengkulu</option>
+                        <option value="Lampung">Lampung</option>
+                        <option value="DKI Jakarta">DKI Jakarta</option>
+                        <option value="Jawa Barat">Jawa Barat</option>
+                        <option value="Jawa Tengah">Jawa Tengah</option>
+                        <option value="DI Yogyakarta">DI Yogyakarta</option>
+                        <option value="Jawa Timur">Jawa Timur</option>
+                        <option value="Banten">Banten</option>
+                        <option value="Bali">Bali</option>
+                        <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+                        <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+                        <option value="Kalimantan Barat">Kalimantan Barat</option>
+                        <option value="Kalimantan Tengah">Kalimantan Tengah</option>
+                        <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                        <option value="Kalimantan Timur">Kalimantan Timur</option>
+                        <option value="Kalimantan Utara">Kalimantan Utara</option>
+                        <option value="Sulawesi Utara">Sulawesi Utara</option>
+                        <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                        <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                        <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                        <option value="Gorontalo">Gorontalo</option>
+                        <option value="Sulawesi Barat">Sulawesi Barat</option>
+                        <option value="Maluku">Maluku</option>
+                        <option value="Maluku Utara">Maluku Utara</option>
+                        <option value="Papua">Papua</option>
+                        <option value="Papua Barat">Papua Barat</option>
+                        <option value="Papua Selatan">Papua Selatan</option>
+                        <option value="Papua Tengah">Papua Tengah</option>
+                        <option value="Papua Pegunungan">Papua Pegunungan</option>
+                        <option value="Papua Barat Daya">Papua Barat Daya</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="umur">Umur <span class="required">*</span></label>
+                    <input type="number" id="umur" name="umur" required min="13" max="99" placeholder="Masukkan umur Anda">
+                </div>
+
+                <div class="form-group">
+                    <label for="linkTiktok">Link TikTok <span class="required">*</span></label>
+                    <input type="url" id="linkTiktok" name="linkTiktok" required placeholder="https://www.tiktok.com/@username">
+                </div>
+
+                <button type="submit" class="submit-btn">Daftar Sekarang</button>
+            </form>
         </div>
-        <div class="games-grid">
-            <div class="game-card">
-                <div class="game-logo">PG</div>
-                <h3 class="game-title">PUBG Mobile</h3>
-                <div class="price-list">
-                    <div class="price-item">
-                        <span>60 UC</span>
-                        <span>$0.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>325 UC</span>
-                        <span>$4.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>660 UC</span>
-                        <span>$9.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>1800 UC</span>
-                        <span>$24.99</span>
-                    </div>
-                </div>
-                <button class="btn btn-primary">Top Up Now</button>
-            </div>
 
-            <div class="game-card">
-                <div class="game-logo">ML</div>
-                <h3 class="game-title">Mobile Legends</h3>
-                <div class="price-list">
-                    <div class="price-item">
-                        <span>86 Diamonds</span>
-                        <span>$1.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>172 Diamonds</span>
-                        <span>$3.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>344 Diamonds</span>
-                        <span>$7.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>706 Diamonds</span>
-                        <span>$15.99</span>
-                    </div>
-                </div>
-                <button class="btn btn-primary">Top Up Now</button>
-            </div>
-
-            <div class="game-card">
-                <div class="game-logo">FF</div>
-                <h3 class="game-title">Free Fire</h3>
-                <div class="price-list">
-                    <div class="price-item">
-                        <span>100 Diamonds</span>
-                        <span>$0.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>310 Diamonds</span>
-                        <span>$2.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>520 Diamonds</span>
-                        <span>$4.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>1080 Diamonds</span>
-                        <span>$9.99</span>
-                    </div>
-                </div>
-                <button class="btn btn-primary">Top Up Now</button>
-            </div>
-
-            <div class="game-card">
-                <div class="game-logo">GI</div>
-                <h3 class="game-title">Genshin Impact</h3>
-                <div class="price-list">
-                    <div class="price-item">
-                        <span>60 Genesis</span>
-                        <span>$0.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>300 Genesis</span>
-                        <span>$4.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>980 Genesis</span>
-                        <span>$14.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>1980 Genesis</span>
-                        <span>$29.99</span>
-                    </div>
-                </div>
-                <button class="btn btn-primary">Top Up Now</button>
-            </div>
-
-            <div class="game-card">
-                <div class="game-logo">VL</div>
-                <h3 class="game-title">Valorant</h3>
-                <div class="price-list">
-                    <div class="price-item">
-                        <span>475 VP</span>
-                        <span>$4.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>1000 VP</span>
-                        <span>$9.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>2050 VP</span>
-                        <span>$19.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>3650 VP</span>
-                        <span>$34.99</span>
-                    </div>
-                </div>
-                <button class="btn btn-primary">Top Up Now</button>
-            </div>
-
-            <div class="game-card">
-                <div class="game-logo">CW</div>
-                <h3 class="game-title">Call of Duty</h3>
-                <div class="price-list">
-                    <div class="price-item">
-                        <span>80 CP</span>
-                        <span>$0.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>400 CP</span>
-                        <span>$4.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>800 CP</span>
-                        <span>$9.99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>2000 CP</span>
-                        <span>$19.99</span>
-                    </div>
-                </div>
-                <button class="btn btn-primary">Top Up Now</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="news">
-        <h2 class="section-title">📰 Latest Game News</h2>
-        <div class="filter-buttons">
-            <button class="filter-btn active">All News</button>
-            <button class="filter-btn">Mobile</button>
-            <button class="filter-btn">PC</button>
-            <button class="filter-btn">eSports</button>
-        </div>
-        <div class="news-grid">
-            <div class="news-card">
-                <div class="news-image">🎮</div>
-                <div class="news-content">
-                    <span class="news-tag">Mobile</span>
-                    <h3 class="news-title">PUBG Mobile Season 31 Update Released</h3>
-                    <p class="news-description">The latest season brings new gameplay modes, weapon skins, and an exciting battle pass with exclusive rewards for players worldwide.</p>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <div class="news-image">🏆</div>
-                <div class="news-content">
-                    <span class="news-tag">eSports</span>
-                    <h3 class="news-title">Mobile Legends World Championship 2024</h3>
-                    <p class="news-description">Teams from around the globe compete for the ultimate prize in this year's most anticipated Mobile Legends tournament.</p>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <div class="news-image">🔥</div>
-                <div class="news-content">
-                    <span class="news-tag">PC</span>
-                    <h3 class="news-title">Valorant New Agent Revealed</h3>
-                    <p class="news-description">Riot Games unveils the newest agent with unique abilities that will change the competitive landscape of tactical shooters.</p>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <div class="news-image">⚡</div>
-                <div class="news-content">
-                    <span class="news-tag">Mobile</span>
-                    <h3 class="news-title">Free Fire x One Piece Collaboration</h3>
-                    <p class="news-description">An epic crossover event featuring characters and themes from the popular anime series, bringing exclusive skins and modes.</p>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <div class="news-image">🌟</div>
-                <div class="news-content">
-                    <span class="news-tag">PC</span>
-                    <h3 class="news-title">Genshin Impact 4.0 Major Update</h3>
-                    <p class="news-description">Explore the new region of Fontaine with new characters, storylines, and gameplay mechanics in this massive content update.</p>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <div class="news-image">🎯</div>
-                <div class="news-content">
-                    <span class="news-tag">eSports</span>
-                    <h3 class="news-title">Call of Duty Mobile Championship</h3>
-                    <p class="news-description">The biggest mobile gaming tournament of the year with teams competing for a $2 million prize pool across multiple game modes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="testimonials">
-        <h2 class="section-title">⭐ Trusted by Thousands of Gamers</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-avatar">A</div>
-                <p class="testimonial-text">"Fast and reliable service! I've been using PRASTORE for all my mobile game top-ups for over a year now. Never had any issues!"</p>
-                <div class="testimonial-author">Alex Chen</div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-avatar">M</div>
-                <p class="testimonial-text">"Great prices and instant delivery. The website is easy to navigate and the customer support is excellent. Highly recommended!"</p>
-                <div class="testimonial-author">Maya Rodriguez</div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-avatar">R</div>
-                <p class="testimonial-text">"Love the game news section! It keeps me updated on all the latest developments in my favorite games. The top-up process is super smooth."</p>
-                <div class="testimonial-author">Ryan Kim</div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-avatar">S</div>
-                <p class="testimonial-text">"Secure payments and competitive prices. I trust PRASTORE with all my gaming purchases. The interface is modern and user-friendly."</p>
-                <div class="testimonial-author">Sarah Johnson</div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-avatar">D</div>
-                <p class="testimonial-text">"Been using this platform for months now. Quick transactions, good customer service, and they support all my favorite games!"</p>
-                <div class="testimonial-author">David Lee</div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-avatar">L</div>
-                <p class="testimonial-text">"The best gaming top-up service I've used. Professional, fast, and always up-to-date with the latest games and news."</p>
-                <div class="testimonial-author">Lisa Wang</div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>PRASTORE</h3>
-                <p>Your trusted gaming partner for fast, secure, and reliable game top-ups. Join thousands of satisfied gamers worldwide.</p>
-                <div class="social-icons">
-                    <div class="social-icon">📘</div>
-                    <div class="social-icon">🐦</div>
-                    <div class="social-icon">📷</div>
-                    <div class="social-icon">🎮</div>
-                </div>
+        <div class="footer">
+            <div class="footer-title">⚠️ PENTING</div>
+            <div class="footer-text">
+                Wajib mengikuti semua akun media sosial resmi <strong>SECRET AREA</strong> sebelum mendaftar!
             </div>
             
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <p><a href="#store">Top-Up Store</a></p>
-                <p><a href="#news">Game News</a></p>
-                <p><a href="#testimonials">Reviews</a></p>
-                <p><a href="#contact">Contact Us</a></p>
-                <p><a href="#faq">FAQ</a></p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Support</h3>
-                <p><a href="#help">Help Center</a></p>
-                <p><a href="#payment">Payment Methods</a></p>
-                <p><a href="#refund">Refund Policy</a></p>
-                <p><a href="#security">Security</a></p>
-                <p><a href="#terms">Terms of Service</a></p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <p>📧 support@prastore.com</p>
-                <p>📱 +1 (555) 123-4567</p>
-                <p>💬 Live Chat 24/7</p>
-                <p>📍 123 Gaming Street, Tech City</p>
-                <p>🕒 Available 24/7</p>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 PRASTORE. All rights reserved. | Privacy Policy | Terms of Service</p>
-        </div>
-    </footer>
-
-    <div class="floating-support">
-        💬
-    </div>
+    
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        // Crystal animation
+        function createCrystal() {
+            const crystal = document.createElement('div');
+            crystal.className = 'crystal';
+            crystal.style.left = Math.random() * 100 + 'vw';
+            crystal.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            crystal.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(crystal);
 
-        // Filter functionality for games
-        const gameFilterBtns = document.querySelectorAll('#store .filter-btn');
-        const gameCards = document.querySelectorAll('.game-card');
-
-        gameFilterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                gameFilterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
-                
-                // Filter logic (for demo purposes, all cards remain visible)
-                const filter = btn.textContent.toLowerCase();
-                gameCards.forEach(card => {
-                    card.style.display = 'block';
-                    card.style.animation = 'fadeInUp 0.5s ease-out';
-                });
-            });
-        });
-
-        // Filter functionality for news
-        const newsFilterBtns = document.querySelectorAll('#news .filter-btn');
-        const newsCards = document.querySelectorAll('.news-card');
-
-        newsFilterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                newsFilterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
-                
-                // Filter logic
-                const filter = btn.textContent.toLowerCase();
-                newsCards.forEach(card => {
-                    const tag = card.querySelector('.news-tag').textContent.toLowerCase();
-                    if (filter === 'all news' || tag.includes(filter)) {
-                        card.style.display = 'block';
-                        card.style.animation = 'fadeInUp 0.5s ease-out';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and sections
-        document.querySelectorAll('.game-card, .news-card, .testimonial-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-
-        // Top-up button functionality
-        document.querySelectorAll('.game-card .btn-primary').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const gameTitle = e.target.closest('.game-card').querySelector('.game-title').textContent;
-                alert(`Redirecting to top-up page for ${gameTitle}...`);
-            });
-        });
-
-        // Floating support button
-        document.querySelector('.floating-support').addEventListener('click', () => {
-            alert('Opening WhatsApp chat...\nContact: +1 (555) 123-4567');
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(10, 10, 10, 0.98)';
-            } else {
-                header.style.background = 'rgba(10, 10, 10, 0.95)';
-            }
-        });
-
-        // Particle animation for hero section
-        function createParticles() {
-            const hero = document.querySelector('.hero');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.style.position = 'absolute';
-                particle.style.width = '2px';
-                particle.style.height = '2px';
-                particle.style.background = '#00d4ff';
-                particle.style.borderRadius = '50%';
-                particle.style.pointerEvents = 'none';
-                particle.style.opacity = Math.random();
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animation = `float ${3 + Math.random() * 4}s ease-in-out infinite ${Math.random() * 2}s`;
-                hero.appendChild(particle);
-            }
+            setTimeout(() => {
+                crystal.remove();
+            }, 5000);
         }
 
-        // Initialize particles
-        createParticles();
+        // Create crystals every 500ms
+        setInterval(createCrystal, 500);
 
-        // Loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '1';
+        // Form animation on input
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.classList.add('input-animation');
+            });
+            
+            input.addEventListener('animationend', function() {
+                this.classList.remove('input-animation');
+            });
         });
 
-        // Mobile menu toggle (placeholder)
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        }
+        // Form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate all fields are filled
+            const requiredFields = ['namaLengkap', 'nickname', 'idGame', 'divisi', 'domisili', 'umur', 'linkTiktok'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = '#ff4444';
+                    input.style.boxShadow = '0 0 10px rgba(255, 68, 68, 0.5)';
+                    
+                    // Reset border color after 3 seconds
+                    setTimeout(() => {
+                        input.style.borderColor = 'rgba(255, 215, 0, 0.3)';
+                        input.style.boxShadow = 'none';
+                    }, 3000);
+                }
+            });
+            
+            if (!isValid) {
+                alert('Mohon lengkapi semua field yang wajib diisi!');
+                return;
+            }
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
 
-        // Add mobile menu button for smaller screens
-        if (window.innerWidth <= 768) {
-            const nav = document.querySelector('nav');
-            const menuBtn = document.createElement('button');
-            menuBtn.innerHTML = '☰';
-            menuBtn.style.background = 'none';
-            menuBtn.style.border = 'none';
-            menuBtn.style.color = 'white';
-            menuBtn.style.fontSize = '1.5rem';
-            menuBtn.style.cursor = 'pointer';
-            menuBtn.onclick = toggleMobileMenu;
-            nav.appendChild(menuBtn);
+            // Create WhatsApp message with better formatting
+            const message = `🎮 *PENDAFTARAN CLAN SECRET AREA* 🎮
+
+═══════════════════════════
+
+👤 *Nama Lengkap:* ${data.namaLengkap}
+🎮 *Nickname In-Game:* ${data.nickname}
+🆔 *ID Game:* ${data.idGame}
+🏆 *Divisi:* ${data.divisi}
+📍 *Domisili:* ${data.domisili}
+🎂 *Umur:* ${data.umur} tahun
+📱 *Link TikTok:* ${data.linkTiktok}
+
+═══════════════════════════
+
+Halo Admin! Saya ingin mendaftar untuk bergabung dengan clan SECRET AREA. Mohon proses pendaftaran saya. Terima kasih! 🙏
+
+*#SecretArea #JoinClan #Gaming*`;
+
+            // Random admin number selection
+            const adminNumbers = ['6285272535526', '6287732771561'];
+            const randomAdmin = adminNumbers[Math.floor(Math.random() * adminNumbers.length)];
+            
+            // Show loading effect on button
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Mengarahkan ke WhatsApp...';
+            submitBtn.style.background = 'linear-gradient(45deg, #32CD32, #228B22)';
+            
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/${randomAdmin}?text=${encodeURIComponent(message)}`;
+            
+            // Add delay for better UX
+            setTimeout(() => {
+                // Open WhatsApp
+                window.open(whatsappUrl, '_blank');
+                
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = 'linear-gradient(45deg, #FFD700, #FFA500)';
+                }, 2000);
+            }, 500);
+        });
+
+        // Create initial crystals
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createCrystal, i * 200);
         }
     </script>
 </body>
-</html>
-    
+</html> 
