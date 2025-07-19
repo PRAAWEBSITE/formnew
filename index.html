@@ -410,6 +410,25 @@
                 <button type="submit" class="submit-btn">Daftar Sekarang</button>
             </form>
         </div>
+        <!-- ✅ Mulai Script Sosial Media Abu-Abu Tengah -->
+<div style="display: flex; justify-content: center; margin-top: 30px;">
+  <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+    
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/sear_pubgmobile?igsh=NDJvM2thYXV4YTNy" target="_blank" style="display: flex; align-items: center; gap: 12px; background: #e5e5e5; padding: 12px 18px; border-radius: 12px; text-decoration: none; transition: transform 0.3s;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 32px; height: 32px;">
+      <span style="font-weight: 600; color: #000; font-size: 16px;">SEAR OFFICIAL</span>
+    </a>
+    
+    <!-- TikTok -->
+    <a href="https://www.tiktok.com/@sear_officialreal?is_from_webapp=1&sender_device=pc" target="_blank" style="display: flex; align-items: center; gap: 12px; background: #e5e5e5; padding: 12px 18px; border-radius: 12px; text-decoration: none; transition: transform 0.3s;">
+      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" style="width: 32px; height: 32px;">
+      <span style="font-weight: 600; color: #000; font-size: 16px;">SEAR OFFICIAL</span>
+    </a>
+
+  </div>
+</div>
+<!-- ✅ Selesai Script Sosial Media -->
 
         <div class="footer">
             <div class="footer-title">⚠️ PENTING</div>
@@ -417,7 +436,9 @@
                 Wajib mengikuti semua akun media sosial resmi <strong>SECRET AREA</strong> sebelum mendaftar!
             </div>
             
-    
+            </div>
+        </div>
+    </div>
 
     <script>
         // Crystal animation
@@ -453,30 +474,6 @@
         document.getElementById('registrationForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validate all fields are filled
-            const requiredFields = ['namaLengkap', 'nickname', 'idGame', 'divisi', 'domisili', 'umur', 'linkTiktok'];
-            let isValid = true;
-            
-            requiredFields.forEach(field => {
-                const input = document.getElementById(field);
-                if (!input.value.trim()) {
-                    isValid = false;
-                    input.style.borderColor = '#ff4444';
-                    input.style.boxShadow = '0 0 10px rgba(255, 68, 68, 0.5)';
-                    
-                    // Reset border color after 3 seconds
-                    setTimeout(() => {
-                        input.style.borderColor = 'rgba(255, 215, 0, 0.3)';
-                        input.style.boxShadow = 'none';
-                    }, 3000);
-                }
-            });
-            
-            if (!isValid) {
-                alert('Mohon lengkapi semua field yang wajib diisi!');
-                return;
-            }
-            
             // Get form data
             const formData = new FormData(this);
             const data = {};
@@ -484,49 +481,28 @@
                 data[key] = value;
             });
 
-            // Create WhatsApp message with better formatting
-            const message = `🎮 *PENDAFTARAN CLAN SECRET AREA* 🎮
-
-═══════════════════════════
+            // Create WhatsApp message
+            const message = `*PENDAFTARAN CLAN SECRET AREA*
 
 👤 *Nama Lengkap:* ${data.namaLengkap}
 🎮 *Nickname In-Game:* ${data.nickname}
 🆔 *ID Game:* ${data.idGame}
 🏆 *Divisi:* ${data.divisi}
 📍 *Domisili:* ${data.domisili}
-🎂 *Umur:* ${data.umur} tahun
+🎂 *Umur:* ${data.umur}
 📱 *Link TikTok:* ${data.linkTiktok}
 
-═══════════════════════════
+Mohon proses pendaftaran saya untuk bergabung dengan clan SECRET AREA. Terima kasih!`;
 
-Halo Admin! Saya ingin mendaftar untuk bergabung dengan clan SECRET AREA. Mohon proses pendaftaran saya. Terima kasih! 🙏
-
-*#SecretArea #JoinClan #Gaming*`;
-
-            // Random admin number selection
+            // Random admin number
             const adminNumbers = ['6285272535526', '6287732771561'];
             const randomAdmin = adminNumbers[Math.floor(Math.random() * adminNumbers.length)];
-            
-            // Show loading effect on button
-            const submitBtn = document.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Mengarahkan ke WhatsApp...';
-            submitBtn.style.background = 'linear-gradient(45deg, #32CD32, #228B22)';
             
             // Create WhatsApp URL
             const whatsappUrl = `https://wa.me/${randomAdmin}?text=${encodeURIComponent(message)}`;
             
-            // Add delay for better UX
-            setTimeout(() => {
-                // Open WhatsApp
-                window.open(whatsappUrl, '_blank');
-                
-                // Reset button after 2 seconds
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.background = 'linear-gradient(45deg, #FFD700, #FFA500)';
-                }, 2000);
-            }, 500);
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
         });
 
         // Create initial crystals
@@ -535,4 +511,4 @@ Halo Admin! Saya ingin mendaftar untuk bergabung dengan clan SECRET AREA. Mohon 
         }
     </script>
 </body>
-</html> 
+</html>
